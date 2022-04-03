@@ -8,7 +8,7 @@ CREATE TABLE department (
     CONSTRAINT department_name UNIQUE (name)
 );
 
-CREATE TABLE role (
+CREATE TABLE roles (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30),
     salary DECIMAL,

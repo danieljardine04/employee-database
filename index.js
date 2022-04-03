@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-const db = require('./db/connection');
+//const db = require('./db/connection');
 const fs = require('fs');
 
 const starterQuestion = [
@@ -27,8 +27,6 @@ function init() {
     inquirer.prompt(starterQuestion).then(answers => {
         switch(answers.chose[0]){
             case "view all departments": {
-                
-                console.log("Thanks for viewing all departments");
                 
                 break;
             }
