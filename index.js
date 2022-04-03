@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
-//const generateMarkdown = require('./utils/generateMarkdown');
-//const db = require('./db/connection');
-const fs = require('fs');
-const Department = require('./libs/Department');
+const {Department, addDepartment} = require('./libs/Department');
+const {Roles, addRole} = require('./libs/Roles');
+const { Employee, addEmployee } = require('./libs/Employee');
+
 
 const starterQuestion = [
     {
@@ -29,28 +29,29 @@ function init() {
         switch(answers.chose[0]){
             case "view all departments": {
                 Department.viewDepartment();
-                init()
+                init();
                 break;
             }
             case "view all roles": {
-                inquirer.prompt()
-                console.log("Thanks for viewing all roles");
+                Roles.viewRoles()
+                init();
                 break;
             }
             case "view all employees": {
-                console.log("thanks for viewing all employees");
+                Employee.viewEmployee()
+                init();
                 break;
             }
             case "add a department": {
-                console.log("thanks for adding a department");
+               addDepartment()
                 break;
             }
             case "add a role":{
-                console.log("Thanks for adding a role.");
+                addRole()
                 break;
             }
             case "add an employee": {
-                console.log("Thanks for adding an employee!");
+                addEmployee()
                 break;
             }
             case "update an employee": {
@@ -67,16 +68,8 @@ function init() {
     })
 }
 
-function writeToFile(fileName, data){
-    fs.writeFile(fileName, generateMarkdown(data), (err) => {
-        if(err){
-            console.log(err);
-        } else {
-            console.log('File written Successfully');
-        }
-    })
-
-}
 
 init()
+
+module.exports = {init};
 
