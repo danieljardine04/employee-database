@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
-const generateMarkdown = require('./utils/generateMarkdown');
+//const generateMarkdown = require('./utils/generateMarkdown');
 //const db = require('./db/connection');
 const fs = require('fs');
+const Department = require('./libs/Department');
 
 const starterQuestion = [
     {
@@ -27,7 +28,8 @@ function init() {
     inquirer.prompt(starterQuestion).then(answers => {
         switch(answers.chose[0]){
             case "view all departments": {
-                
+                Department.viewDepartment();
+                init()
                 break;
             }
             case "view all roles": {

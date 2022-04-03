@@ -1,5 +1,5 @@
 const mysql = require('mysql2');
-const index = require('../index');
+
 
 const db = mysql.createConnection(
     {
@@ -8,7 +8,7 @@ const db = mysql.createConnection(
         password: 'G@rrettGS11',
         database: 'employeeGrid'
     },
-    console.log("Connected to the database")
+   // console.log("Connected to the database")
 )
 
 module.exports = db;
